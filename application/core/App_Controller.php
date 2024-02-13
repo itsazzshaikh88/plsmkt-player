@@ -3,10 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class App_Controller extends CI_Controller
 {
-	protected $user;
-	protected $usertype;
-	protected $userid;
-	protected $app_language;
+	public $user;
+	public $usertype;
+	public $userid;
+	public $app_language;
 
 	public function __construct()
 	{
@@ -22,11 +22,11 @@ class App_Controller extends CI_Controller
 		if ($auth_cookie == '')
 			return redirect(SITE_URL . "/login/player?force-logout=true");
 		// If Cookie is present then check for authentication token and authenticate user
-		$this->user = $this->db
-			->select('id, player_id, first_name, last_name, email, country, city, sport_id, position_id, is_verified, verified_on, verification_source')
-			->where('auth_token', $auth_cookie)
-			->get('players')
-			->row_array();
+		$this->user = $this->db->query("SELECT p.id, p.player_id, p.first_name, p.last_name, p.email, p.country, p.city, p.sport_id, p.position_id, 
+						p.is_verified, p.verified_on, p.verification_source, upi.profile_image, upi.cover_image, upi.listing_image
+						FROM players p
+						LEFT JOIN user_profile_images upi ON p.id = upi.user_id AND upi.user_type = 'P'
+						WHERE p.auth_token = '$auth_cookie'")->row_array();
 		if (empty($this->user))
 			return redirect(SITE_URL . "/login/player?force-logout=true");
 		// set user details
