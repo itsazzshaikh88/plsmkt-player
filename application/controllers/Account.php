@@ -25,6 +25,9 @@ class Account extends App_Controller
 	}
 	public function logout()
 	{
+		$token = $this->input->cookie('__plmkt_uat', TRUE);
+		// Update token expiry
+		$this->db->where('token', $token)->update('auth_tokens', ['is_expired' => 1]);
 		// Delete the cookie by setting its expiration time to a past value
 		delete_cookie('__plmkt_uat');
 		redirect(SITE_URL . '/login/player');

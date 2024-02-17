@@ -1,0 +1,21 @@
+.text-green {
+	color: #01d099 !important;
+}
+
+.custom-card {
+	background: #fff;
+	padding: 10px 15px;
+}
+
+.custom-card h3 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #333;
+	margin: 10px 0 30px;
+}
+
+.btn-green {
+	color: #fff;
+	background-color: #01d099;
+	border-color: #01d099;
+}

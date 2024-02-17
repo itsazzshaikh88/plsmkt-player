@@ -189,7 +189,7 @@ a {
   margin: 12px 0;
 }
 .sidebar-activity h3 {
-  color: #777;
+  color: #333;
   font-size: 14px;
   font-weight: 500;
   margin: 20px 0 10px;
@@ -200,11 +200,16 @@ a {
   font-size: 12px;
   font-size: 500;
   color: #888;
-  margin: 3px 0;
+	padding: 2px 5px;
 }
-.sidebar-activity a img {
+.sidebar-activity a i {
   width: 20px;
   margin-right: 10px;
+	font-size: 16px;
+	color: #0d6efd;
+}
+.sidebar-activity a:hover {
+	background-color: #e7e7e780;
 }
 .discover-more-link {
   border-top: 1px solid #ccc;
@@ -798,3 +803,5 @@ profile-container-inner {
     display: block;
   }
 }
+
+

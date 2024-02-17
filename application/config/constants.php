@@ -101,3 +101,8 @@ if (in_array($_SERVER['HTTP_HOST'], $local_servers)) {
 define('PLAYER_APP_URL', $player_app);
 define('CLUB_APP_URL', $club_app);
 define('SITE_URL', $front_app);
+
+define('FTP_FILE_SERVER', '216.172.184.110');
+define('FTP_FILE_USERNAME', 'files@playersmkt.com');
+define('FTP_FILE_PASSWORD', 'Olive@7246$');
+define('FTP_FILE_PORT', '21');
